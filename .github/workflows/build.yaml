@@ -1,4 +1,4 @@
-# Snipe-IT Docker image build for hub.docker.com
+# Kubernetes App Docker image build for hub.docker.com
 name: Docker images
 
 # Run this Build for all pushes to 'master' or develop branch, or tagged releases.
