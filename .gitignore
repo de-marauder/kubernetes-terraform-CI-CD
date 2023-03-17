@@ -1,2 +1,5 @@
-microservices-demo
-example-voting-app
+microservices-demo/
+example-voting-app/*
+node_modules
+
+https://github.com/de-marauder/kubernetes-terraform-CI-CD.git

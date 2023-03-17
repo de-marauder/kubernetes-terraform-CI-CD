@@ -6,7 +6,7 @@ name: Docker images
 on:
   push:
     branches:
-      - master
+      - main
       # - develop
     tags:
       - 'v**'
