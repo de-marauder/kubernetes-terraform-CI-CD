@@ -1,0 +1,38 @@
+.Outer {
+    background: rgb(68, 144, 243);
+    position: fixed;
+    top: 20px;
+    right: 0;
+    min-width: 60px;
+    text-align: center;
+    border-radius: 20px 0 0 20px;
+    padding: 0.3rem 0.5rem;
+    box-shadow: 0 0 10px white;
+    animation: menu 1s linear infinite;
+    z-index: 20;
+}
+
+.Outer:hover {
+    background: rgb(240, 50, 123);
+}
+
+@keyframes menu {
+    to {
+        box-shadow: 0 0 30px rgb(255, 0, 234);
+    }
+}
+
+.Outer p {
+    background: linear-gradient(rgb(108, 247, 108), yellow);
+    background-clip: text;
+    font-weight: bolder;
+    color: transparent;
+    font-size: 1.5rem;
+    font-family: 'Festive', cursive;
+}
+
+@media (min-width: 600px) {
+    .Outer {
+        display: none
+    }
+}

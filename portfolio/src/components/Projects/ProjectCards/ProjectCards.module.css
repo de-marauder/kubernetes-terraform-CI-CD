@@ -1,0 +1,10 @@
+.ProjectCards {
+  height: 70%;
+  min-width: 90%;
+  margin: auto;
+  display: flex;
+  flex-flow: wrap;
+  align-items: stretch;
+  justify-content: center;
+}
+

@@ -1,0 +1,58 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: vote-app-cert
+  namespace: vote-app
+spec:
+  dnsNames:
+    - vote.de-marauder.me
+    - result.de-marauder.me
+  secretName: vote-app-tls
+  issuerRef:
+    name: letsencrypt-cluster-issuer
+    kind: ClusterIssuer
+
+---
+
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: sock-shop-cert
+  namespace: sock-shop
+spec:
+  dnsNames:
+    - sock.de-marauder.me
+  secretName: sock-shop-tls
+  issuerRef:
+    name: letsencrypt-cluster-issuer
+    kind: ClusterIssuer
+
+---
+
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: prometheus-cert
+  namespace: monitoring
+spec:
+  dnsNames:
+    - monitor   .de-marauder.me
+  secretName: prometheus-server-tls
+  issuerRef:
+    name: letsencrypt-cluster-issuer
+    kind: ClusterIssuer
+
+---
+
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: grafana-cert
+  namespace: monitoring
+spec:
+  dnsNames:
+    - grafana.de-marauder.me
+  secretName: grafana-server-tls
+  issuerRef:
+    name: letsencrypt-cluster-issuer
+    kind: ClusterIssuer

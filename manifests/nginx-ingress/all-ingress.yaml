@@ -1,0 +1,122 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    ingressClassName: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: voting-app-ingress
+  namespace: vote-app
+spec:
+  tls:
+  - hosts:
+    - result.de-marauder.me
+    - vote.de-marauder.me
+    secretName: vote-app-tls
+  rules:
+  - host: vote.de-marauder.me
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service: 
+            name: vote
+            port: 
+              number: 80
+  - host: result.de-marauder.me
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service: 
+            name: result
+            port: 
+              number: 80
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    ingressClassName: nginx
+    kubernetes.io/ingress.class: "nginx"
+  name: sock-shop-ingress
+  namespace: sock-shop
+spec:
+  tls:
+  - hosts:
+    - sock.de-marauder.me
+    secretName: sock-shop-tls
+  rules:
+  - host: sock.de-marauder.me
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service: 
+            name: front-end
+            port: 
+              number: 80
+      
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    ingressClassName: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: prometheus-ingress
+  namespace: monitoring
+spec:
+  tls:
+  - hosts:
+    - monitor.de-marauder.me
+    secretName: prometheus-server-tls
+  rules:
+  - host: monitor.de-marauder.me
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service: 
+            # name: prometheus-server
+            name: monitoring-kube-prometheus-prometheus
+            port: 
+              number: 80
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    ingressClassName: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: grafana-ingress
+  namespace: monitoring
+spec:
+  tls:
+  - hosts:
+    - grafana.de-marauder.me
+    secretName: grafana-server-tls
+  rules:
+  - host: grafana.de-marauder.me
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service: 
+            # name: grafana
+            name: monitoring-grafana
+            port: 
+              number: 80

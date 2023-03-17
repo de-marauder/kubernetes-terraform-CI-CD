@@ -1,0 +1,36 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    ingressClassName: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: voting-app-ingress
+  namespace: vote-app
+spec:
+  tls:
+  - hosts:
+    - result.de-marauder.me
+    - vote.de-marauder.me
+    secretName: vote-app-tls
+  rules:
+  - host: vote.de-marauder.me
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service: 
+            name: vote
+            port: 
+              number: 80
+  - host: result.de-marauder.me
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service: 
+            name: result
+            port: 
+              number: 80

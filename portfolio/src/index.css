@@ -1,0 +1,27 @@
+* {
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: ease-in-out 0.3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation-duration: 0.01ms !important;
+    animation-delay: 0.001ms !important;
+  }
+}
+
+:root {
+  --background-hue: 300;
+  --background-hue-1: 245;
+  --background-dark: hsl(var(--background-hue), 100%, 8%, 90%);
+  --background-light: hsl(var(--background-hue), 100%, 15%, 90%);
+  --background-1-dark: hsl(var(--background-hue-1), 0%, 0%, 90%);
+  --background-1-light: hsl(var(--background-hue-1), 100%, 25%, 80%);
+  --text-pri-dark: hsl(180, 100%, 30%);
+  --text-pri-light: hsl(180, 100%, 50%);
+  --text-sec-dark: hsl(73, 100%, 30%);
+  --text-sec-light: hsl(73, 100%, 50%);
+}

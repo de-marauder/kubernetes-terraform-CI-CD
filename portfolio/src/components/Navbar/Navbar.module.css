@@ -1,0 +1,118 @@
+
+.Navbar {
+  backdrop-filter: blur(5px);
+  box-shadow: 1px 0px 1px rgba(255, 255, 255, 0.452);
+  position: relative;
+  z-index: 10;
+  padding: 1em;
+  width: 5em;
+  min-height: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--background-dark);
+  justify-content: space-between;
+}
+
+.Navbar * {
+  transition: ease-in 0.1s;
+}
+
+
+.Navbar > .Links {
+  height: 80%;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+}
+
+.NavItem {
+  margin: 0 1em;
+  font-size: 1.2em;
+  color: white;
+  text-decoration: none;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.NavItem:hover {
+  color: var(--text-pri-light);
+}
+
+.HomeIcon {
+  font-size: 2rem;
+  color: var(--text-pri-dark);
+}
+.HomeIcon:hover {
+  color: var(--text-pri-light);
+}
+
+.Socials {
+  font-size: 1.2em;
+}
+.SocialIcons {
+  background-color: transparent;
+  border-radius: 50%;
+  margin: 0 1em;
+  max-width: 6em;
+}
+.SocialIcons:hover {
+  color: var(--text-sec-light);
+}
+.SocialsInnerWrapper {
+  display: flex;
+  flex-direction: column;
+}
+.SocialsInnerWrapper a {
+  text-decoration: none;
+  color: #999;
+  margin: 0.5em auto;
+}
+
+.Routes {
+  display: flex;
+  flex-direction: column;
+}
+
+.Routes a {
+  color: var(--text-pri-dark);
+  margin: 1em auto;
+}
+
+.Navbar .active {
+  color: var(--text-pri-light);
+}
+
+@media (min-width: 600px) {
+  .Navbar {
+    width: 100%;
+    min-height: auto;
+    height: fit-content;
+    flex-direction: row;
+    background: linear-gradient(
+      to right,
+      var(--background-dark),
+      var(--background-light)
+    );
+    box-shadow: 0 0px 15px var(--background-light);
+  }
+  .Navbar > .Links {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  .HomeIcon {
+    margin: 0 1em;
+  }
+
+  .Routes,
+  .SocialsInnerWrapper {
+    flex-direction: row;
+  }
+  .SocialsInnerWrapper a {
+    margin: 0;
+  }
+  .Routes a {
+    margin: 0 1em;
+  }
+}

@@ -1,0 +1,119 @@
+.ProjectCard {
+  margin: 20px auto;
+  backdrop-filter: blur(3px);
+  border-radius: 0.5rem;
+  background: hsl(0, 0%, 100%, 70%);
+  box-shadow: #ddd 0 0 3px;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: fade-in ease-in-out forwards;
+  animation-duration: 1s;
+}
+
+.desc {
+  padding: 0 1em 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.ProjectImg {
+  height: 50%;
+  max-height: 150px;
+  width: 100%;
+}
+
+.Title {
+  padding: 1rem 0;
+  color: var(--background-dark);
+  font-size: 1.2em;
+  font-family: "Courier New", Courier, monospace;
+}
+.Title p {
+  font-size: 0.9rem;
+}
+
+.hr {
+  margin: 0.5rem 0;
+  border: 1px solid var(--background-dark);
+}
+
+.Tags {
+  display: flex;
+  align-items: flex-start;
+  flex-flow: wrap;
+  list-style: none;
+  margin: 5px 0;
+  font-size: 0.9rem;
+  color: white
+}
+.Tag {
+  box-shadow: 0 0 5px #333;
+  border-radius: 0.5rem;
+  margin: 0 10px 10px 0;
+  padding: 0.2rem 0.5rem;
+  background: var(--background-dark);
+  width: fit-content;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.Links {
+  display: flex;
+  justify-content: space-between;
+}
+.Links a {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: var(--background-dark);
+  border: solid var(--background-dark) 2px;
+  border-radius: 20px;
+}
+
+.Links a:hover {
+  background-color: var(--background-dark);
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: white;
+  border: solid var(--background-dark) 2px;
+  border-radius: 20px;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0.1;
+    transform: translateY(40%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fade-in-out {
+  0% {
+    opacity: 0.1;
+    transform: translateX(40%);
+  }
+  5% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  95% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    height: max-content;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(50%) scale(0);
+    height: 0;
+  }
+}
+
+@media (min-width: 600px) {
+  .ProjectCard {
+    flex-basis: 45%;
+  }
+}
