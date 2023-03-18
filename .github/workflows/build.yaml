@@ -64,13 +64,13 @@ jobs:
       ###############################################
       # https://github.com/docker/metadata-action
       # Get Metadata for docker_build step below
-      - name: Sync metadata (tags, labels) from GitHub to Docker for 'portfolio' image
-        id: meta_build
-        uses: docker/metadata-action@v4
-        with:
-          images: demarauder/portfolio
-          tags: ${{ env.IMAGE_TAGS }}
-          flavor: ${{ env.TAGS_FLAVOR }}
+      # - name: Sync metadata (tags, labels) from GitHub to Docker for 'portfolio' image
+      #   id: meta_build
+      #   uses: docker/metadata-action@v4
+      #   with:
+      #     images: demarauder/portfolio
+      #     tags: ${{ env.IMAGE_TAGS }}
+      #     flavor: ${{ env.TAGS_FLAVOR }}
 
       # https://github.com/docker/build-push-action
       # - name: Build and push 'portfolio' image
@@ -126,7 +126,7 @@ jobs:
           --remote-name
         chmod +x kubectl
         sudo mv kubectl /usr/local/bin/
-        echo ${{ secrets.KUBECONFIG }} | base64 --decode > kubeconfig.yaml
+        echo '${{ secrets.KUBECONFIG }}' | base64 --decode > kubeconfig.yaml
     - name: Deploy
       run: |
         export DOCKER_IMAGE=${{ secrets.DOCKER_USERNAME }}/portfolio
