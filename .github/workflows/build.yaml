@@ -130,13 +130,15 @@ jobs:
         sudo mv kubectl /usr/local/bin/
         echo '${{ secrets.KUBECONFIG }}' | base64 --decode > kubeconfig.yaml
 
+        mkdir -p ~/.aws
+        mkdir -p ~/.aws
         touch ~/.aws/config
         touch ~/.aws/credentials
         echo '
         [profile terraform]
         region = us-east-1
         ' >> ~/.aws/config
-        
+
         echo '
         [terraform]
         aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -153,6 +155,6 @@ jobs:
 
     - name: Clean up
       run: |
-        rm ~/.aws/credentials ~/.aws/config
+        rm -rf ~/.aws
 
       
