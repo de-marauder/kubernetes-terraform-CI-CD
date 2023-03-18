@@ -129,6 +129,8 @@ jobs:
         chmod +x kubectl
         sudo mv kubectl /usr/local/bin/
         echo '${{ secrets.KUBECONFIG }}' | base64 --decode > kubeconfig.yaml
+        touch ~/.aws/config
+        touch ~/.aws/credentials
         echo '
         [profile terraform]
         region = us-east-1
@@ -138,6 +140,7 @@ jobs:
         aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_access_key = ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         ' >> ~/.aws/credentials
+
     - name: Deploy
       run: |
         export DOCKER_IMAGE=${{ secrets.DOCKER_USERNAME }}/portfolio
@@ -145,5 +148,9 @@ jobs:
         export KUBECONFIG=kubeconfig.yaml
         envsubst < k8s/kustomization.tmpl.yaml > k8s/kustomization.yaml
         kubectl kustomize k8s | kubectl apply -f -
+
+    - name: Clean up
+      run: |
+        rm ~/.aws/credentials ~/.aws/config
 
       
