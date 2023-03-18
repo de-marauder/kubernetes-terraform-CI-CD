@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    ingressClassName: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: portfolio-ingress
+  namespace: monitoring
+spec:
+  tls:
+  - hosts:
+    - de-marauder.me
+    secretName: portfolio-server-tls
+  rules:
+  - host: de-marauder.me
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service: 
+            # name: portfolio
+            name: portfolio
+            port: 
+              number: 80

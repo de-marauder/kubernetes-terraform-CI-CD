@@ -1,0 +1,2 @@
+[submodule "terraform"]
+	url = https://github.com/de-marauder/tf-kubernetes.git

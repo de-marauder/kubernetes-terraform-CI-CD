@@ -1,0 +1,9 @@
+resources:
+- deployment.yaml
+- ns.yaml
+- service.yaml
+
+images:
+- name: amazonaws.com/kubernetes-github-actions
+  newName: ${DOCKER_IMAGE}
+  newTag: ${IMAGE_TAG}
