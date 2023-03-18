@@ -13,7 +13,7 @@ Monitoring and loging were implented using prometheus, grafana and loki
 - Grafana at [graf.de-marauder.me](graf.de-marauder.me)
 
 # Infrastructure as Code (IAC)
-Implemented with terraform and can be viewed [here](./terraform)
+Implemented with terraform and can be viewed [here](https://github.com/de-marauder/tf-kubernetes)
 # Results
 <img src='images/portfolio.png' alt='portfolio' />
 <img src='images/vote-app.png' alt='vote-app' />
