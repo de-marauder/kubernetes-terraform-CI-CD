@@ -3,7 +3,8 @@ import { NavLink as Link } from 'react-router-dom'
 
 import { motion } from 'framer-motion'
 // import titleImage from '../../assets/images/coder-icon.webp'
-import titleImage from '../../assets/images/obi-39-no-bg.png'
+// import titleImage from '../../assets/images/obi-39-no-bg.png'
+import titleImage from '../../assets/images/obi-30.png'
 // import reactIcon from '../../assets/images/react-icon.svg'
 import '../App.css';
 
