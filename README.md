@@ -1,11 +1,11 @@
 # This repo contains all components for the setup of a kubernetes cluster running three separate applications each with their various services. 
-The application include:
+The applications include:
 - My portfolio: [de-marauder.me](de-marauder.me)
-- A voting application on [vote-app.de-marauder.me](vote-app.de-marauder.me) and [result-app.de-marauder.me](result-app.de-marauder.me)
-- The weaveworks sock shop application on [sock-shop.de-marauder.me](sock-shop.de-marauder.me)
+- A [voting application](https://github.com/dockersamples/example-voting-app) on [vote-app.de-marauder.me](vote-app.de-marauder.me) and [result-app.de-marauder.me](result-app.de-marauder.me)
+- The [weaveworks sock shop](https://github.com/microservices-demo/microservices-demo) application on [sock-shop.de-marauder.me](sock-shop.de-marauder.me)
 
 # Continous Integration & Continous Deployment (CI/CD) 
-This was setup using github actions
+This was setup using github actions [here](.github/workflows/build.yaml)
 
 # Monitoring and logging
 Monitoring and loging were implented using prometheus, grafana and loki
